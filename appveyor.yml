@@ -3,7 +3,8 @@ environment:
     REPO_DIR: h5py
     PACKAGE_NAME: h5py
     #BUILD_COMMIT: v3.3.0
-    BUILD_DEPENDS: "hdf5 numpy>=1.6.1 six cython>=0.19"
+    HDF5_VERSION: "1.8.18"
+    BUILD_DEPENDS: "hdf5==1.8.18 numpy>=1.7.0 six cython>=0.19"
     TEST_DEPENDS: "numpy>=1.7.0 six"
     WHEELHOUSE_UPLOADER_USERNAME: travis-worker
     #WHEELHOUSE_UPLOADER_SECRET:
