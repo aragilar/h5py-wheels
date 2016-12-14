@@ -59,8 +59,9 @@ install:
     - python -c "import struct; print(struct.calcsize('P') * 8)"
 
 build_script:
-    # Install build requirements
-    - conda install --yes %BUILD_DEPENDS%
+    # create build env
+    - conda create --yes -n build_env python=%PYTHON_VERSION% %BUILD_DEPENDS%
+    - activate build_env
 
     # Additional pre install steps:
     - set HDF5_DIR=%PYTHON%\Library\
@@ -70,6 +71,7 @@ build_script:
     - cd %REPO_DIR%
     - git checkout %BUILD_COMMIT%
     - "%CMD_IN_ENV% python setup.py bdist_wheel"
+    - deactivate
 
 test_script:
     # create test env
